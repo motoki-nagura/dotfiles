@@ -1,6 +1,7 @@
 Rossby
 wavenumber
 eigenfunction
+eigenfunctions
 
 Weyl
 Dynkin
