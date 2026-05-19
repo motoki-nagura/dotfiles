@@ -1,7 +1,9 @@
-Rossby
 wavenumber
 eigenfunction
 eigenfunctions
+orthonormality
+
+Rossby
 
 Weyl
 Dynkin
