@@ -82,6 +82,7 @@ return {
   -- ========================
   s({ trig = ";a", name = "alpha", wordTrig = false }, { t("\\alpha") }),
   s({ trig = ";b", name = "beta", wordTrig = false }, { t("\\beta") }),
+  s({ trig = ";e", name = "eta", wordTrig = false }, { t("\\eta") }),
   s({ trig = ";g", name = "gamma", wordTrig = false }, { t("\\gamma") }),
   s({ trig = ";d", name = "delta", wordTrig = false }, { t("\\delta") }),
   s({ trig = ";l", name = "lambda", wordTrig = false }, { t("\\lambda") }),
