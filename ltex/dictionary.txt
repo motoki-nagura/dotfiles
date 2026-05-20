@@ -4,6 +4,8 @@ eigenfunctions
 orthonormality
 
 Rossby
+middepth
+middepths
 
 Weyl
 Dynkin
