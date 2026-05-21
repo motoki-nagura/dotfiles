@@ -176,7 +176,10 @@ require("lazy").setup({
         sources = {
           null_ls.builtins.diagnostics.vale.with({
             filetypes = { "tex", "markdown", "text" },
-            -- Uses .vale.ini / vale.ini found in the current project or home directory.
+            extra_args = {
+              "--config",
+              vim.fn.expand("~/.vale.ini"),
+            },
           }),
         },
       })
