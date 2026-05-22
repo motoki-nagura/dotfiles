@@ -385,6 +385,7 @@ vim.opt.errorformat = "%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\\ %m
 vim.opt.foldmethod = "marker"
 
 vim.opt.indentkeys:remove("0}")
+vim.opt.indentkeys:remove("0]")
 vim.opt.indentkeys:remove("&")
 vim.opt.indentkeys:remove("]")
 vim.opt.indentkeys:remove("}")
