@@ -247,4 +247,5 @@ return {
   s({ trig = "inn", name = "in", wordTrig = false }, { t("\\in ") }),
   s({ trig = "cdt", name = "cdot", wordTrig = false }, { t("\\cdot ") }),
   s({ trig = "prop", name = "Proposition", wordTrig = false }, { t("Proposition ") }),
+  s({ trig = "nnm", name = "No number", wordTrig = false }, { t("\\nonumber ") }),
 }
