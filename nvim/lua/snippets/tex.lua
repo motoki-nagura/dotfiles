@@ -173,17 +173,17 @@ return {
   -- Derivatives & Integrals
   -- ========================
   s({ trig = "pd", name = "partial derivative" },
-    fmt("\\frac{{\\partial {}}}{{\\partial {}}}{}", { i(1, "f"), i(2, "x"), i(0) }),
+    fmt("\\frac{{\\pt {}}}{{\\pt {}}}{}", { i(1, "f"), i(2, "x"), i(0) }),
     { condition = line_begin }
   ),
 
   s({ trig = "pdd", name = "second partial derivative" },
-    fmt("\\frac{{\\partial^2 {}}}{{\\partial {}^2}}{}", { i(1, "f"), i(2, "x"), i(0) }),
+    fmt("\\frac{{\\pt^2 {}}}{{\\pt {}^2}}{}", { i(1, "f"), i(2, "x"), i(0) }),
     { condition = line_begin }
   ),
 
   s({ trig = "pdc", name = "mixed partial derivative" },
-    fmt("\\frac{{\\partial^2 {}}}{{\\partial {} \\partial {}}}{}", { i(1, "f"), i(2, "x"), i(3, "y"), i(0) }),
+    fmt("\\frac{{\\pt^2 {}}}{{\\pt {} \\pt {}}}{}", { i(1, "f"), i(2, "x"), i(3, "y"), i(0) }),
     { condition = line_begin }
   ),
 
