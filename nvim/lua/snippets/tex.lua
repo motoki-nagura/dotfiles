@@ -82,6 +82,7 @@ return {
   -- ========================
   s({ trig = ";a", name = "alpha", wordTrig = false }, { t("\\alpha") }),
   s({ trig = ";b", name = "beta", wordTrig = false }, { t("\\beta") }),
+  s({ trig = ";d", name = "delta", wordTrig = false }, { t("\\delta") }),
   s({ trig = ";e", name = "eta", wordTrig = false }, { t("\\eta") }),
   s({ trig = ";g", name = "gamma", wordTrig = false }, { t("\\gamma") }),
   s({ trig = ";d", name = "delta", wordTrig = false }, { t("\\delta") }),
@@ -91,6 +92,8 @@ return {
   s({ trig = ";o", name = "omega", wordTrig = false }, { t("\\omega") }),
   s({ trig = ";p", name = "phi", wordTrig = false }, { t("\\phi") }),
   s({ trig = ";t", name = "theta", wordTrig = false }, { t("\\theta") }),
+
+  s({ trig = ";D", name = "Delta", wordTrig = false }, { t("\\Delta") }),
 
   -- ========================
   -- Brackets
