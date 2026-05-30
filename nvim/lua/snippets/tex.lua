@@ -48,7 +48,7 @@ return {
   -- Math mode auto ($$)
   -- ========================
   s({ trig = "mm", name = "inline math", wordTrig = false },
-    fmt("${{{}}}{}", { i(1), i(0) })
+    fmt("${{{}}}${}", { i(1), i(0) })
   ),
 
   -- ========================
@@ -126,7 +126,6 @@ return {
 \end{cases}
 <>]], { i(1), i(2), i(3), i(4), i(0) }, { delimiters = "<>" })
   ),
-
 
   -- ========================
   -- Matrix generator
@@ -220,16 +219,33 @@ return {
   ),
 
   -- ========================
-  -- Sectioning
+  -- Other symbols
+  -- ========================
+  s({ trig = "rarw", name = "right arrow",           wordTrig = false }, { t("\\rightarrow ") }),
+  s({ trig = "inn",  name = "in",                    wordTrig = false }, { t("\\in ") }),
+  s({ trig = "cdt",  name = "cdot",                  wordTrig = false }, { t("\\cdot ") }),
+  s({ trig = "ge",   name = "greater than or equal", wordTrig = false }, { t("\\ge ") }),
+  s({ trig = "le",   name = "less than or equal",    wordTrig = false }, { t("\\le ") }),
+
+  -- ========================
+  -- Misc
+  -- ========================
+  s({ trig = "because",  name = "because",   wordTrig = false }, { t("\\because ") }),
+  s({ trig = "qquad",    name = "qquad",     wordTrig = false }, { t("\\qquad ") }),
+  s({ trig = "nonumber", name = "no number", wordTrig = false }, { t("\\nonumber ") }),
+  s({ trig = "noindent", name = "no indent", wordTrig = false }, { t("\\noindent ") }),
+  s({ trig = "textbf",   name = "text bold", wordTrig = false }, fmt("\\textbf{{{}}}{}", { i(1), i(0) }) ),
+  s({ trig = "vspace",   name = "vspace",    wordTrig = false }, fmt("\\vspace{{{}}}{}", { i(1), i(0) }) ),
+
+  -- ========================
+  -- Non LaTeX symbols
   -- ========================
   s({ trig = "para", name = "paragraph", wordTrig = true },
     fmt("\\paragraph{{{}}}{}", { i(1), i(0) })
   ),
 
+  s({ trig = "prop", name = "Proposition", wordTrig = false }, { t("Proposition ") }),
 
-  -- ========================
-  -- Fold markers
-  -- ========================
   s({ trig = "<<", name = "fold marker <<<", wordTrig = false },
     fmt("%<<<{}{}", { i(1), i(0) })
   ),
@@ -238,14 +254,4 @@ return {
     fmt("%>>>{}{}", { i(1), i(0) })
   ),
 
-  -- ========================
-  -- Misc
-  -- ========================
-  s({ trig = "be", name = "because", wordTrig = false }, { t("\\because ") }),
-  s({ trig = "qq", name = "qquad", wordTrig = false }, { t("\\qquad ") }),
-  s({ trig = "rarw", name = "right arrow", wordTrig = false }, { t("\\rightarrow ") }),
-  s({ trig = "inn", name = "in", wordTrig = false }, { t("\\in ") }),
-  s({ trig = "cdt", name = "cdot", wordTrig = false }, { t("\\cdot ") }),
-  s({ trig = "prop", name = "Proposition", wordTrig = false }, { t("Proposition ") }),
-  s({ trig = "nnm", name = "No number", wordTrig = false }, { t("\\nonumber ") }),
 }
