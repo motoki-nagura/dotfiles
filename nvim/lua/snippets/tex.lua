@@ -90,7 +90,9 @@ return {
   s({ trig = ";m", name = "mu",    wordTrig = false }, { t("\\mu") }),
   s({ trig = ";s", name = "sigma", wordTrig = false }, { t("\\sigma") }),
   s({ trig = ";o", name = "omega", wordTrig = false }, { t("\\omega") }),
-  s({ trig = ";p", name = "phi",   wordTrig = false }, { t("\\phi") }),
+  s({ trig = ";p", name = "pi",    wordTrig = false }, { t("\\pi") }),
+  s({ trig = ";ph", name = "phi",  wordTrig = false }, { t("\\phi") }),
+  s({ trig = ";r", name = "rho",   wordTrig = false }, { t("\\rho") }),
   s({ trig = ";t", name = "theta", wordTrig = false }, { t("\\theta") }),
 
   s({ trig = ";D", name = "Delta", wordTrig = false }, { t("\\Delta") }),
@@ -167,8 +169,12 @@ return {
   -- ========================
   -- Text in math
   -- ========================
-  s({ trig = "tx", name = "text", wordTrig = false },
+  s({ trig = "text", name = "text", wordTrig = false },
     fmt("\\text{{{}}}{}", { i(1), i(0) })
+  ),
+
+  s({ trig = "textcolor", name = "text color", wordTrig = false },
+    fmt("\\textcolor{{{}}}{{{}}}{}", { i(1), i(2), i(0) })
   ),
 
   -- ========================
@@ -222,18 +228,43 @@ return {
   ),
 
   -- ========================
+  -- Set symbols
+  -- ========================
+  s({ trig = "pt",       name = "partial",  wordTrig = false }, { t("\\partial ") }),
+  s({ trig = "inn",      name = "in",       wordTrig = false }, { t("\\in ") }),
+  s({ trig = "subset",   name = "subset",   wordTrig = false }, { t("\\subset ") }),
+  s({ trig = "subseteq", name = "subseteq", wordTrig = false }, { t("\\subseteq ") }),
+  s({ trig = "oplus",    name = "oplus",    wordTrig = false }, { t("\\oplus ") }),
+  s({ trig = "cap",      name = "cap",      wordTrig = false }, { t("\\cap ") }),
+  s({ trig = "cup",      name = "cup",      wordTrig = false }, { t("\\cup ") }),
+  s({ trig = "preceq",   name = "preceq",   wordTrig = false }, { t("\\preceq ") }),
+  s({ trig = "succeq",   name = "succeq",   wordTrig = false }, { t("\\succeq ") }),
+
+  -- ========================
   -- Other symbols
   -- ========================
-  s({ trig = "rarw", name = "right arrow",           wordTrig = false }, { t("\\rightarrow ") }),
-  s({ trig = "inn",  name = "in",                    wordTrig = false }, { t("\\in ") }),
-  s({ trig = "cdt",  name = "cdot",                  wordTrig = false }, { t("\\cdot ") }),
-  s({ trig = "ge",   name = "greater than or equal", wordTrig = false }, { t("\\ge ") }),
-  s({ trig = "le",   name = "less than or equal",    wordTrig = false }, { t("\\le ") }),
+  s({ trig = "rarw",    name = "right arrow",              wordTrig = false }, { t("\\rightarrow ") }),
+  s({ trig = "cdt",     name = "cdot",                     wordTrig = false }, { t("\\cdot ") }),
+  s({ trig = "ge",      name = "greater than or equal to", wordTrig = false }, { t("\\ge ") }),
+  s({ trig = "le",      name = "less than or equal to",    wordTrig = false }, { t("\\le ") }),
+  s({ trig = "times",   name = "times",                    wordTrig = false }, { t("\\times ") }),
+  s({ trig = "infty",   name = "infinity",                 wordTrig = false }, { t("\\infty ") }),
+  s({ trig = "because", name = "because",                  wordTrig = false }, { t("\\because ") }),
+
+  s({ trig = "prod", name = "product", wordTrig = false },
+    fmt([[
+\prod_{{{}}}^{{{}}} {}
+{}]], { i(1), i(2), i(3), i(0) })
+  ),
+
+  s({ trig = "hat", name = "hat", wordTrig = false },
+    fmt("\\hat{{{}}}{}", { i(1), i(0) })
+  ),
 
   -- ========================
   -- Misc
   -- ========================
-  s({ trig = "because",  name = "because",   wordTrig = false }, { t("\\because ") }),
+  s({ trig = "quad",     name = "quad",      wordTrig = false }, { t("\\quad ") }),
   s({ trig = "qquad",    name = "qquad",     wordTrig = false }, { t("\\qquad ") }),
   s({ trig = "nonumber", name = "no number", wordTrig = false }, { t("\\nonumber ") }),
   s({ trig = "noindent", name = "no indent", wordTrig = false }, { t("\\noindent ") }),
