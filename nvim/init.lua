@@ -433,3 +433,12 @@ vim.api.nvim_set_hl(0, "StatusLineNC", {
   fg = "#e5c07b",
   bg = "#3a3f4b",
 })
+
+-- =========================================
+-- Auto-reload for Codex
+-- =========================================
+vim.opt.autoread = true
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+  command = "checktime",
+})
