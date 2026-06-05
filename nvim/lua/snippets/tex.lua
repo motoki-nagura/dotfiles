@@ -253,6 +253,12 @@ return {
   s({ trig = "infty",   name = "infinity",                 wordTrig = false }, { t("\\infty ") }),
   s({ trig = "because", name = "because",                  wordTrig = false }, { t("\\because ") }),
 
+  s({ trig = "sum", name = "sum", wordTrig = false },
+    fmt([[
+\sum_{{{}}}^{{{}}} {}
+{}]], { i(1), i(2), i(3), i(0) })
+  ),
+
   s({ trig = "prod", name = "product", wordTrig = false },
     fmt([[
 \prod_{{{}}}^{{{}}} {}
