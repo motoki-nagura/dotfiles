@@ -244,7 +244,9 @@ return {
   -- Other symbols
   -- ========================
   s({ trig = "rarw",    name = "right arrow",              wordTrig = false }, { t("\\rightarrow ") }),
-  s({ trig = "cdt",     name = "cdot",                     wordTrig = false }, { t("\\cdot ") }),
+  s({ trig = "cdot",    name = "cdot",                     wordTrig = false }, { t("\\cdot ") }),
+  s({ trig = "cdots",   name = "cdots",                    wordTrig = false }, { t("\\cdots ") }),
+  s({ trig = "vdots",   name = "vdots",                    wordTrig = false }, { t("\\vdots ") }),
   s({ trig = "ge",      name = "greater than or equal to", wordTrig = false }, { t("\\ge ") }),
   s({ trig = "le",      name = "less than or equal to",    wordTrig = false }, { t("\\le ") }),
   s({ trig = "times",   name = "times",                    wordTrig = false }, { t("\\times ") }),
