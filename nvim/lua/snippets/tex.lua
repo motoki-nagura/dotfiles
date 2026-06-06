@@ -255,14 +255,12 @@ return {
 
   s({ trig = "sum", name = "sum", wordTrig = false },
     fmt([[
-\sum_{{{}}}^{{{}}} {}
-{}]], { i(1), i(2), i(3), i(0) })
+\sum_{{{}}}^{{{}}} {} {}]], { i(1), i(2), i(3), i(0) })
   ),
 
   s({ trig = "prod", name = "product", wordTrig = false },
     fmt([[
-\prod_{{{}}}^{{{}}} {}
-{}]], { i(1), i(2), i(3), i(0) })
+\prod_{{{}}}^{{{}}} {} {}]], { i(1), i(2), i(3), i(0) })
   ),
 
   s({ trig = "hat", name = "hat", wordTrig = false },
