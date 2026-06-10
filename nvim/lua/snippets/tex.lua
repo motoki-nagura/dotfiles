@@ -84,15 +84,15 @@ return {
   s({ trig = ";b", name = "beta",  wordTrig = false }, { t("\\beta") }),
   s({ trig = ";d", name = "delta", wordTrig = false }, { t("\\delta") }),
   s({ trig = ";e", name = "eta",   wordTrig = false }, { t("\\eta") }),
+  s({ trig = ";f", name = "phi",   wordTrig = false }, { t("\\phi") }),
   s({ trig = ";g", name = "gamma", wordTrig = false }, { t("\\gamma") }),
-  s({ trig = ";d", name = "delta", wordTrig = false }, { t("\\delta") }),
   s({ trig = ";l", name = "lambda",wordTrig = false }, { t("\\lambda") }),
   s({ trig = ";m", name = "mu",    wordTrig = false }, { t("\\mu") }),
-  s({ trig = ";s", name = "sigma", wordTrig = false }, { t("\\sigma") }),
   s({ trig = ";o", name = "omega", wordTrig = false }, { t("\\omega") }),
   s({ trig = ";p", name = "pi",    wordTrig = false }, { t("\\pi") }),
   s({ trig = ";ph", name = "phi",  wordTrig = false }, { t("\\phi") }),
   s({ trig = ";r", name = "rho",   wordTrig = false }, { t("\\rho") }),
+  s({ trig = ";s", name = "sigma", wordTrig = false }, { t("\\sigma") }),
   s({ trig = ";t", name = "theta", wordTrig = false }, { t("\\theta") }),
 
   s({ trig = ";D", name = "Delta", wordTrig = false }, { t("\\Delta") }),
@@ -254,9 +254,9 @@ return {
   -- ========================
   -- Trigonometric and other functions
   -- ========================
-  s({ trig = "cos", name = "cosine",  wordTrig = false }, { t("\\cos ") }),
-  s({ trig = "sin", name = "sine",    wordTrig = false }, { t("\\sin ") }),
-  s({ trig = "tan", name = "tangent", wordTrig = false }, { t("\\tan ") }),
+  s({ trig = "cos", name = "cosine",  wordTrig = false }, { t("\\cos") }),
+  s({ trig = "sin", name = "sine",    wordTrig = false }, { t("\\sin") }),
+  s({ trig = "tan", name = "tangent", wordTrig = false }, { t("\\tan") }),
 
   -- ========================
   -- Other symbols
