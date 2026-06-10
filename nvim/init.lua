@@ -178,7 +178,7 @@ require("lazy").setup({
             filetypes = { "tex", "markdown", "text" },
             extra_args = {
               "--config",
-              vim.fn.expand("~/.vale.ini"),
+              vim.fn.expand("~/.config/vale/.vale.ini"),
             },
           }),
         },
