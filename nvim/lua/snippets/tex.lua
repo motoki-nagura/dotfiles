@@ -180,6 +180,8 @@ return {
   -- ========================
   -- Derivatives & Integrals
   -- ========================
+  s({ trig = "pt",       name = "partial",  wordTrig = false }, { t("\\pt ") }),
+
   s({ trig = "pd", name = "partial derivative" },
     fmt("\\frac{{\\pt {}}}{{\\pt {}}}{}", { i(1, "f"), i(2, "x"), i(0) }),
     { condition = line_begin }
@@ -212,6 +214,8 @@ return {
     fmt("{} \\times {}{}", { i(1, "\\mathbf{A}"), i(2, "\\mathbf{B}"), i(0) })
   ),
 
+  s({ trig = "nabla", name = "nabla",  wordTrig = false }, { t("\\nabla ") }),
+
   -- ========================
   -- Fonts
   -- ========================
@@ -227,14 +231,17 @@ return {
     fmt("\\mathsf{{{}}}{}", { i(1), i(0) })
   ),
 
-  s({ trig = "bm", name = "bm {}", wordTrig = false },
-    fmt("\\bm{{{}}}{}", { i(1), i(0) })
+    s(
+    { trig = "bm", name = "\\bm{}", wordTrig = false },
+    fmta("\\bm{<>}<>", {
+      i(1),
+      i(0),
+    })
   ),
 
   -- ========================
   -- Set symbols
   -- ========================
-  s({ trig = "pt",       name = "partial",  wordTrig = false }, { t("\\partial ") }),
   s({ trig = "inn",      name = "in",       wordTrig = false }, { t("\\in ") }),
   s({ trig = "subset",   name = "subset",   wordTrig = false }, { t("\\subset ") }),
   s({ trig = "subseteq", name = "subseteq", wordTrig = false }, { t("\\subseteq ") }),
