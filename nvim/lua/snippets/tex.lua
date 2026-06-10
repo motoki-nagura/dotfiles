@@ -227,6 +227,10 @@ return {
     fmt("\\mathsf{{{}}}{}", { i(1), i(0) })
   ),
 
+  s({ trig = "bm", name = "bm {}", wordTrig = false },
+    fmt("\\bm{{{}}}{}", { i(1), i(0) })
+  ),
+
   -- ========================
   -- Set symbols
   -- ========================
@@ -239,6 +243,13 @@ return {
   s({ trig = "cup",      name = "cup",      wordTrig = false }, { t("\\cup ") }),
   s({ trig = "preceq",   name = "preceq",   wordTrig = false }, { t("\\preceq ") }),
   s({ trig = "succeq",   name = "succeq",   wordTrig = false }, { t("\\succeq ") }),
+
+  -- ========================
+  -- Trigonometric and other functions
+  -- ========================
+  s({ trig = "cos", name = "cosine",  wordTrig = false }, { t("\\cos ") }),
+  s({ trig = "sin", name = "sine",    wordTrig = false }, { t("\\sin ") }),
+  s({ trig = "tan", name = "tangent", wordTrig = false }, { t("\\tan ") }),
 
   -- ========================
   -- Other symbols
@@ -273,13 +284,13 @@ return {
   -- ========================
   -- Misc
   -- ========================
-  s({ trig = "quad",     name = "quad",      wordTrig = false }, { t("\\quad ") }),
-  s({ trig = "qquad",    name = "qquad",     wordTrig = false }, { t("\\qquad ") }),
-  s({ trig = "nonumber", name = "no number", wordTrig = false }, { t("\\nonumber ") }),
-  s({ trig = "noindent", name = "no indent", wordTrig = false }, { t("\\noindent ") }),
+  s({ trig = "quad",     name = "quad",         wordTrig = false }, { t("\\quad ") }),
+  s({ trig = "qquad",    name = "qquad",        wordTrig = false }, { t("\\qquad ") }),
+  s({ trig = "nonumber", name = "no number",    wordTrig = false }, { t("\\nonumber ") }),
+  s({ trig = "noindent", name = "no indent",    wordTrig = false }, { t("\\noindent ") }),
   s({ trig = "dispstyl", name = "displaystyle", wordTrig = false }, { t("\\displaystyle ") }),
-  s({ trig = "textbf",   name = "text bold", wordTrig = false }, fmt("\\textbf{{{}}}{}", { i(1), i(0) }) ),
-  s({ trig = "vspace",   name = "vspace",    wordTrig = false }, fmt("\\vspace{{{}}}{}", { i(1), i(0) }) ),
+  s({ trig = "textbf",   name = "text bold",    wordTrig = false }, fmt("\\textbf{{{}}}{}", { i(1), i(0) }) ),
+  s({ trig = "vspace",   name = "vspace",       wordTrig = false }, fmt("\\vspace{{{}}}{}", { i(1), i(0) }) ),
 
   -- ========================
   -- Non LaTeX symbols
