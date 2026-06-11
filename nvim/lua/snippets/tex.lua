@@ -180,7 +180,7 @@ return {
   -- ========================
   -- Derivatives & Integrals
   -- ========================
-  s({ trig = "pt",       name = "partial",  wordTrig = false }, { t("\\pt ") }),
+  s({ trig = "pt",       name = "partial",  wordTrig = false }, { t("\\pt") }),
 
   s({ trig = "pd", name = "partial derivative" },
     fmt("\\frac{{\\pt {}}}{{\\pt {}}}{}", { i(1, "f"), i(2, "x"), i(0) }),
