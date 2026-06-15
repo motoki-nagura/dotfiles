@@ -11,3 +11,4 @@ Weyl
 Dynkin
 indecomposable
 Shilov
+Verma
