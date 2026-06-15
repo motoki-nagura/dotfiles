@@ -12,3 +12,6 @@ Dynkin
 indecomposable
 Shilov
 Verma
+
+Fortran
+pytest
