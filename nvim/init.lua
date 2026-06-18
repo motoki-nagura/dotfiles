@@ -377,6 +377,133 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev)
 
+
+-- =========================================
+-- Visual selection color markers
+-- =========================================
+-- Usage:
+--   Visual mode: <leader>hr / <leader>hy / <leader>hg / <leader>hb / <leader>hp
+--   Clear all markers in the current buffer: <leader>hc or :VisualColorClear
+--   Custom color from Visual mode:
+--     :'<,'>VisualColor #ff8800
+local visual_color_ns = vim.api.nvim_create_namespace("visual_color_markers")
+local visual_color_custom_count = 0
+
+local visual_color_groups = {
+  red = "VisualColorRed",
+  yellow = "VisualColorYellow",
+  green = "VisualColorGreen",
+  blue = "VisualColorBlue",
+  purple = "VisualColorPurple",
+}
+
+vim.api.nvim_set_hl(0, visual_color_groups.red, { fg = "#ff5f5f" })
+vim.api.nvim_set_hl(0, visual_color_groups.yellow, { fg = "#ffd75f" })
+vim.api.nvim_set_hl(0, visual_color_groups.green, { fg = "#5fff87" })
+vim.api.nvim_set_hl(0, visual_color_groups.blue, { fg = "#5fafff" })
+vim.api.nvim_set_hl(0, visual_color_groups.purple, { fg = "#af87ff" })
+
+local function normalize_visual_range(start_pos, end_pos)
+  local start_row = start_pos[2] - 1
+  local start_col = start_pos[3] - 1
+  local end_row = end_pos[2] - 1
+  local end_col = end_pos[3]
+
+  if start_row > end_row or (start_row == end_row and start_col > end_col) then
+    start_row, end_row = end_row, start_row
+    start_col, end_col = end_col - 1, start_col + 1
+  end
+
+  return start_row, start_col, end_row, end_col
+end
+
+local function highlight_range(bufnr, start_row, start_col, end_row, end_col, hl_group)
+  if start_row == end_row then
+    vim.api.nvim_buf_set_extmark(bufnr, visual_color_ns, start_row, start_col, {
+      end_col = end_col,
+      hl_group = hl_group,
+    })
+    return
+  end
+
+  local first_line = vim.api.nvim_buf_get_lines(bufnr, start_row, start_row + 1, false)[1] or ""
+  vim.api.nvim_buf_set_extmark(bufnr, visual_color_ns, start_row, start_col, {
+    end_col = #first_line,
+    hl_group = hl_group,
+  })
+
+  for row = start_row + 1, end_row - 1 do
+    local line = vim.api.nvim_buf_get_lines(bufnr, row, row + 1, false)[1] or ""
+    vim.api.nvim_buf_set_extmark(bufnr, visual_color_ns, row, 0, {
+      end_col = #line,
+      hl_group = hl_group,
+    })
+  end
+
+  vim.api.nvim_buf_set_extmark(bufnr, visual_color_ns, end_row, 0, {
+    end_col = end_col,
+    hl_group = hl_group,
+  })
+end
+
+local function visual_color_mark(hl_group)
+  local bufnr = vim.api.nvim_get_current_buf()
+  local start_row, start_col, end_row, end_col = normalize_visual_range(
+    vim.fn.getpos("'<"),
+    vim.fn.getpos("'>")
+  )
+
+  highlight_range(bufnr, start_row, start_col, end_row, end_col, hl_group)
+end
+
+local function visual_color_from_hex(hex)
+  if not hex:match("^#%x%x%x%x%x%x$") then
+    vim.notify("VisualColor expects a color like #ff8800", vim.log.levels.ERROR)
+    return
+  end
+
+  visual_color_custom_count = visual_color_custom_count + 1
+  local group = "VisualColorCustom" .. visual_color_custom_count
+  vim.api.nvim_set_hl(0, group, { fg = hex })
+  visual_color_mark(group)
+end
+
+vim.api.nvim_create_user_command("VisualColor", function(opts)
+  visual_color_from_hex(opts.args)
+end, {
+  nargs = 1,
+  range = true,
+  desc = "Color the latest Visual selection with a custom foreground color, e.g. :'<,'>VisualColor #ff8800",
+})
+
+vim.api.nvim_create_user_command("VisualColorClear", function()
+  vim.api.nvim_buf_clear_namespace(0, visual_color_ns, 0, -1)
+end, {
+  desc = "Clear VisualColor markers in the current buffer",
+})
+
+vim.keymap.set("x", "<leader>hr", function()
+  visual_color_mark(visual_color_groups.red)
+end, { desc = "Highlight selection red" })
+
+vim.keymap.set("x", "<leader>hy", function()
+  visual_color_mark(visual_color_groups.yellow)
+end, { desc = "Highlight selection yellow" })
+
+vim.keymap.set("x", "<leader>hg", function()
+  visual_color_mark(visual_color_groups.green)
+end, { desc = "Highlight selection green" })
+
+vim.keymap.set("x", "<leader>hb", function()
+  visual_color_mark(visual_color_groups.blue)
+end, { desc = "Highlight selection blue" })
+
+vim.keymap.set("x", "<leader>hp", function()
+  visual_color_mark(visual_color_groups.purple)
+end, { desc = "Highlight selection purple" })
+
+vim.keymap.set("n", "<leader>hc", ":VisualColorClear<CR>", { desc = "Clear color markers" })
+
 -- =========================================
 -- Diagnostics
 -- =========================================
