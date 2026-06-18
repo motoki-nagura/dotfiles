@@ -382,26 +382,42 @@ vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev)
 -- Visual selection color markers
 -- =========================================
 -- Usage:
---   Visual mode: <leader>hr / <leader>hy / <leader>hg / <leader>hb / <leader>hp
---   Clear all markers in the current buffer: <leader>hc or :VisualColorClear
---   Custom color from Visual mode:
---     :'<,'>VisualColor #ff8800
+--   Visual mode:
+--     :'<,'>VisualColor red
+--     :'<,'>VisualColor yellow
+--     :'<,'>VisualColor green
+--     :'<,'>VisualColor blue
+--     :'<,'>VisualColor purple
+--   Clear all markers in the current buffer:
+--     :VisualColorClear
 local visual_color_ns = vim.api.nvim_create_namespace("visual_color_markers")
-local visual_color_custom_count = 0
 
-local visual_color_groups = {
-  red = "VisualColorRed",
-  yellow = "VisualColorYellow",
-  green = "VisualColorGreen",
-  blue = "VisualColorBlue",
-  purple = "VisualColorPurple",
+local visual_color_palette = {
+  red = {
+    group = "VisualColorRed",
+    fg = "#ff5f5f",
+  },
+  yellow = {
+    group = "VisualColorYellow",
+    fg = "#ffd75f",
+  },
+  green = {
+    group = "VisualColorGreen",
+    fg = "#5fff87",
+  },
+  blue = {
+    group = "VisualColorBlue",
+    fg = "#5fafff",
+  },
+  purple = {
+    group = "VisualColorPurple",
+    fg = "#af87ff",
+  },
 }
 
-vim.api.nvim_set_hl(0, visual_color_groups.red, { fg = "#ff5f5f" })
-vim.api.nvim_set_hl(0, visual_color_groups.yellow, { fg = "#ffd75f" })
-vim.api.nvim_set_hl(0, visual_color_groups.green, { fg = "#5fff87" })
-vim.api.nvim_set_hl(0, visual_color_groups.blue, { fg = "#5fafff" })
-vim.api.nvim_set_hl(0, visual_color_groups.purple, { fg = "#af87ff" })
+for _, color in pairs(visual_color_palette) do
+  vim.api.nvim_set_hl(0, color.group, { fg = color.fg })
+end
 
 local function normalize_visual_range(start_pos, end_pos)
   local start_row = start_pos[2] - 1
@@ -456,24 +472,26 @@ local function visual_color_mark(hl_group)
   highlight_range(bufnr, start_row, start_col, end_row, end_col, hl_group)
 end
 
-local function visual_color_from_hex(hex)
-  if not hex:match("^#%x%x%x%x%x%x$") then
-    vim.notify("VisualColor expects a color like #ff8800", vim.log.levels.ERROR)
+vim.api.nvim_create_user_command("VisualColor", function(opts)
+  local color_name = opts.args:lower()
+  local color = visual_color_palette[color_name]
+
+  if color == nil then
+    vim.notify(
+      "VisualColor expects one of: red, yellow, green, blue, purple",
+      vim.log.levels.ERROR
+    )
     return
   end
 
-  visual_color_custom_count = visual_color_custom_count + 1
-  local group = "VisualColorCustom" .. visual_color_custom_count
-  vim.api.nvim_set_hl(0, group, { fg = hex })
-  visual_color_mark(group)
-end
-
-vim.api.nvim_create_user_command("VisualColor", function(opts)
-  visual_color_from_hex(opts.args)
+  visual_color_mark(color.group)
 end, {
   nargs = 1,
   range = true,
-  desc = "Color the latest Visual selection with a custom foreground color, e.g. :'<,'>VisualColor #ff8800",
+  complete = function()
+    return { "red", "yellow", "green", "blue", "purple" }
+  end,
+  desc = "Color the latest Visual selection with a named foreground color",
 })
 
 vim.api.nvim_create_user_command("VisualColorClear", function()
@@ -481,28 +499,6 @@ vim.api.nvim_create_user_command("VisualColorClear", function()
 end, {
   desc = "Clear VisualColor markers in the current buffer",
 })
-
-vim.keymap.set("x", "<leader>hr", function()
-  visual_color_mark(visual_color_groups.red)
-end, { desc = "Highlight selection red" })
-
-vim.keymap.set("x", "<leader>hy", function()
-  visual_color_mark(visual_color_groups.yellow)
-end, { desc = "Highlight selection yellow" })
-
-vim.keymap.set("x", "<leader>hg", function()
-  visual_color_mark(visual_color_groups.green)
-end, { desc = "Highlight selection green" })
-
-vim.keymap.set("x", "<leader>hb", function()
-  visual_color_mark(visual_color_groups.blue)
-end, { desc = "Highlight selection blue" })
-
-vim.keymap.set("x", "<leader>hp", function()
-  visual_color_mark(visual_color_groups.purple)
-end, { desc = "Highlight selection purple" })
-
-vim.keymap.set("n", "<leader>hc", ":VisualColorClear<CR>", { desc = "Clear color markers" })
 
 -- =========================================
 -- Diagnostics
