@@ -390,24 +390,24 @@ local visual_color_ns = vim.api.nvim_create_namespace("visual_color_markers")
 local visual_color_custom_count = 0
 
 local visual_color_groups = {
-  red = "VisualColorRed",
+  red    = "VisualColorRed",
   yellow = "VisualColorYellow",
-  green = "VisualColorGreen",
-  blue = "VisualColorBlue",
+  green  = "VisualColorGreen",
+  blue   = "VisualColorBlue",
   purple = "VisualColorPurple",
 }
 
-vim.api.nvim_set_hl(0, visual_color_groups.red, { fg = "#ff5f5f" })
+vim.api.nvim_set_hl(0, visual_color_groups.red,    { fg = "#ff5f5f" })
 vim.api.nvim_set_hl(0, visual_color_groups.yellow, { fg = "#ffd75f" })
-vim.api.nvim_set_hl(0, visual_color_groups.green, { fg = "#5fff87" })
-vim.api.nvim_set_hl(0, visual_color_groups.blue, { fg = "#5fafff" })
+vim.api.nvim_set_hl(0, visual_color_groups.green,  { fg = "#5fff87" })
+vim.api.nvim_set_hl(0, visual_color_groups.blue,   { fg = "#5fafff" })
 vim.api.nvim_set_hl(0, visual_color_groups.purple, { fg = "#af87ff" })
 
 local function normalize_visual_range(start_pos, end_pos)
   local start_row = start_pos[2] - 1
   local start_col = start_pos[3] - 1
-  local end_row = end_pos[2] - 1
-  local end_col = end_pos[3]
+  local end_row   = end_pos[2] - 1
+  local end_col   = end_pos[3]
 
   if start_row > end_row or (start_row == end_row and start_col > end_col) then
     start_row, end_row = end_row, start_row
@@ -482,7 +482,7 @@ end, {
   desc = "Clear VisualColor markers in the current buffer",
 })
 
-vim.keymap.set("x", "<leader>hr", function()
+vim.keymap.set("x", "<leader>cr", function()
   visual_color_mark(visual_color_groups.red)
 end, { desc = "Highlight selection red" })
 
