@@ -11,9 +11,11 @@ middepths
 
 Weyl
 Dynkin
-indecomposable
 Shilov
 Verma
+
+indecomposable
+subalgebra
 
 Fortran
 pytest
