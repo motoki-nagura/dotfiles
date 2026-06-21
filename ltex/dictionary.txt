@@ -2,6 +2,7 @@ wavenumber
 eigenfunction
 eigenfunctions
 orthonormality
+injective
 
 Rossby
 Yanai
@@ -11,11 +12,13 @@ middepths
 
 Weyl
 Dynkin
-Shilov
 Verma
 
 indecomposable
 subalgebra
+Semisimple
 
 Fortran
 pytest
+
+Shilov
