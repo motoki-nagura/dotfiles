@@ -6,6 +6,7 @@ injective
 
 Rossby
 Yanai
+Pedlosky
 
 middepth
 middepths
