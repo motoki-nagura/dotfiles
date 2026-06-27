@@ -91,6 +91,7 @@ return {
   s({ trig = ";o",  name = "omega", wordTrig = false }, { t("\\omega") }),
   s({ trig = ";p",  name = "pi",    wordTrig = false }, { t("\\pi") }),
   s({ trig = ";ph", name = "phi",   wordTrig = false }, { t("\\phi") }),
+  s({ trig = ";ps", name = "psi",   wordTrig = false }, { t("\\psi") }),
   s({ trig = ";r",  name = "rho",   wordTrig = false }, { t("\\rho") }),
   s({ trig = ";s",  name = "sigma", wordTrig = false }, { t("\\sigma") }),
   s({ trig = ";t",  name = "theta", wordTrig = false }, { t("\\theta") }),
