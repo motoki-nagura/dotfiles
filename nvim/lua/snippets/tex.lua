@@ -233,6 +233,10 @@ return {
     fmt("\\mathsf{{{}}}{}", { i(1), i(0) })
   ),
 
+  s({ trig = "mcl", name = "mathcal {}", wordTrig = false },
+    fmt("\\mathcal{{{}}}{}", { i(1), i(0) })
+  ),
+
     s(
     { trig = "bm", name = "\\bm{}", wordTrig = false },
     fmta("\\bm{<>}<>", {
