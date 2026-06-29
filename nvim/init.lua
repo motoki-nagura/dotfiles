@@ -225,10 +225,15 @@ require("lazy").setup({
         preselect = cmp.PreselectMode.None,
 
         completion = {
+          -- Do not open the completion menu automatically while typing.
+          -- Use <C-Space> to show it manually.
+          autocomplete = false,
           completeopt = "menu,menuone,noinsert,noselect",
         },
 
         mapping = cmp.mapping.preset.insert({
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
 
           ["<Tab>"] = cmp.mapping(function(fallback)
