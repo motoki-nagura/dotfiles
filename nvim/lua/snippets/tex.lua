@@ -87,6 +87,7 @@ return {
   s({ trig = ";e",   name = "eta",   wordTrig = false }, { t("\\eta") }),
   s({ trig = ";f",   name = "phi",   wordTrig = false }, { t("\\phi") }),
   s({ trig = ";g",   name = "gamma", wordTrig = false }, { t("\\gamma") }),
+  s({ trig = ";k",   name = "kappa", wordTrig = false }, { t("\\kappa") }),
   s({ trig = ";l",   name = "lambda",wordTrig = false }, { t("\\lambda") }),
   s({ trig = ";m",   name = "mu",    wordTrig = false }, { t("\\mu") }),
   s({ trig = ";o",   name = "omega", wordTrig = false }, { t("\\omega") }),

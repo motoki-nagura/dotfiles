@@ -224,46 +224,6 @@ require("lazy").setup({
     end,
   },
 
-  -- Telescope fuzzy finder
-  {
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
-    config = function()
-      local telescope = require("telescope")
-      local builtin = require("telescope.builtin")
-
-      telescope.setup({
-        defaults = {
-          mappings = {
-            i = {
-              ["<C-j>"] = "move_selection_next",
-              ["<C-k>"] = "move_selection_previous",
-            },
-          },
-        },
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
-          },
-        },
-      })
-
-      telescope.load_extension("ui-select")
-
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-      vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-      vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-      vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Telescope recent files" })
-      vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "Telescope commands" })
-      vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope diagnostics" })
-    end,
-  },
-
   -- Easy align
   {
     "junegunn/vim-easy-align",
