@@ -9,9 +9,22 @@ return {
     }
   end,
   config = function()
-    vim.keymap.set("v", "<leader>rs", "<Plug>SlimeRegionSend", { desc = "Send selection to IPython" })
-    vim.keymap.set("n", "<leader>rp", "<Plug>SlimeParagraphSend", { desc = "Send paragraph to IPython" })
-    vim.keymap.set("n", "<leader>rr", ":SlimeSend<CR>", { desc = "Send current line to IPython" })
-    vim.keymap.set("n", "<leader>ra", ":%SlimeSend<CR>", { desc = "Send whole buffer to IPython" })
+    vim.keymap.set("v", "<leader>rs", "<Plug>SlimeRegionSend", {
+      desc = "Send selection to IPython",
+    })
+
+    vim.keymap.set("n", "<leader>rp", "<Plug>SlimeParagraphSend", {
+      desc = "Send paragraph to IPython",
+    })
+
+    vim.keymap.set("n", "<leader>rr", "<Plug>SlimeLineSend", {
+      desc = "Send current line to IPython",
+    })
+
+    vim.keymap.set("n", "<leader>ra", function()
+      vim.cmd("%SlimeSend")
+    end, {
+      desc = "Send whole buffer to IPython",
+    })
   end,
 }
