@@ -60,7 +60,37 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+  spec = {
+    -- Load plugin specifications from ~/.config/nvim/lua/plugins/*.lua.
+    { import = "plugins" },
+
+    -- Disable vim-slime even if it is still declared under lua/plugins/.
+    { "jpalardy/vim-slime", enabled = false },
+
+    -- Terminal integration.
+    {
+      "akinsho/toggleterm.nvim",
+      version = "*",
+      config = function()
+        require("toggleterm").setup({
+          size = 15,
+          open_mapping = [[<C-\>]],
+          hide_numbers = true,
+          shade_terminals = true,
+          start_in_insert = true,
+          insert_mappings = true,
+          terminal_mappings = true,
+          persist_size = true,
+          persist_mode = true,
+          direction = "horizontal",
+          close_on_exit = true,
+          shell = vim.o.shell,
+        })
+      end,
+    },
+  },
+})
 
 -- =========================================
 -- Autocommands
@@ -152,6 +182,9 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev)
+
+-- Leave terminal insert mode with Esc.
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 -- =========================================
 -- Diagnostics
