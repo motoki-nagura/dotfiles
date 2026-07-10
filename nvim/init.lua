@@ -74,7 +74,7 @@ require("lazy").setup({
       version = "*",
       config = function()
         require("toggleterm").setup({
-          size = 60,
+          size = 120,
           open_mapping = [[<C-\>]],
           hide_numbers = true,
           shade_terminals = true,
