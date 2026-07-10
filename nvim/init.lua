@@ -67,28 +67,6 @@ require("lazy").setup({
 
     -- Disable vim-slime even if it is still declared under lua/plugins/.
     { "jpalardy/vim-slime", enabled = false },
-
-    -- Terminal integration.
-    {
-      "akinsho/toggleterm.nvim",
-      version = "*",
-      config = function()
-        require("toggleterm").setup({
-          size = 120,
-          open_mapping = [[<C-\>]],
-          hide_numbers = true,
-          shade_terminals = true,
-          start_in_insert = true,
-          insert_mappings = true,
-          terminal_mappings = false,
-          persist_size = true,
-          persist_mode = true,
-          direction = "vertical",
-          close_on_exit = true,
-          shell = vim.o.shell,
-        })
-      end,
-    },
   },
 })
 
@@ -107,41 +85,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- Filetypes
---vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
---  pattern = "*.f90",
---  command = "set filetype=f90",
---})
-
 vim.api.nvim_create_autocmd("Syntax", {
   pattern = "f90",
   command = "source ~/.vim/syntax/fortran.vim",
 })
-
---vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
---  pattern = "*.jnl",
---  command = "set filetype=ferret",
---})
---
---vim.api.nvim_create_autocmd("Syntax", {
---  pattern = "ferret",
---  command = "source ~/.vim/syntax/ferret.vim",
---})
-
--- Run shortcuts
---vim.api.nvim_create_autocmd("FileType", {
---  pattern = "python",
---  callback = function()
---    vim.keymap.set("n", "<leader>r", ":w<CR>:!python %<CR>", { buffer = true })
---  end,
---})
---
---vim.api.nvim_create_autocmd("FileType", {
---  pattern = "julia",
---  callback = function()
---    vim.keymap.set("n", "<leader>r", ":w<CR>:!julia %<CR>", { buffer = true })
---  end,
---})
 
 -- LaTeX folding
 vim.api.nvim_create_augroup("latex_folding", { clear = true })
@@ -199,7 +146,6 @@ vim.diagnostic.config({
 -- =========================================
 -- Miscellaneous options
 -- =========================================
--- vim.opt.errorformat = "%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\\ %m,%C%.%#"
 vim.opt.foldmethod = "marker"
 
 vim.opt.indentkeys:remove("0}")
