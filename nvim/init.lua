@@ -80,7 +80,7 @@ require("lazy").setup({
           shade_terminals = true,
           start_in_insert = true,
           insert_mappings = true,
-          terminal_mappings = true,
+          terminal_mappings = false,
           persist_size = true,
           persist_mode = true,
           direction = "vertical",
