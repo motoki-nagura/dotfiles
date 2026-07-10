@@ -60,200 +60,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Shared LSP capabilities.
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
--- =========================================
--- Plugins
--- =========================================
-require("lazy").setup({
-  -- LaTeX support
-  {
-    "lervag/vimtex",
-  },
-
-  -- Color scheme
-  {
-    "joshdick/onedark.vim",
-  },
-
-  -- Python highlighting plugin kept disabled.
-  {
-    "numirias/semshi",
-    enabled = false,
-    build = ":UpdateRemotePlugins",
-  },
-
-  -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter").install({ "python", "lua", "vim", "vimdoc" })
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "*",
-        callback = function(args)
-          pcall(vim.treesitter.start, args.buf)
-        end,
-      })
-    end,
-  },
-
-  -- LSP
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lsp_capabilities = capabilities
-
-      -- Python: Pyright
-      vim.lsp.config("pyright", {
-        cmd = { "pyright-langserver", "--stdio" },
-        filetypes = { "python" },
-        root_markers = {
-          "pyproject.toml",
-          "setup.py",
-          "setup.cfg",
-          "requirements.txt",
-          ".git",
-        },
-        capabilities = lsp_capabilities,
-      })
-      vim.lsp.enable("pyright")
-
-      -- English / LaTeX / Markdown: LTeX Language Server
-      -- Install separately, for example:
-      --   brew install ltex-ls
-      -- or put ltex-ls in your PATH.
-      vim.lsp.config("ltex", {
-        cmd = { "ltex-ls" },
-        filetypes = { "tex", "bib", "markdown", "text", "plaintex" },
-        capabilities = lsp_capabilities,
-
-        get_language_id = function(_, filetype)
-          if filetype == "tex" or filetype == "plaintex" then
-            return "latex"
-          elseif filetype == "bib" then
-            return "bibtex"
-          elseif filetype == "markdown" then
-            return "markdown"
-          else
-            return "plaintext"
-          end
-        end,
-
-        settings = {
-          ltex = {
-            language = "en-US",
-            enabled = { "latex", "bibtex", "markdown", "plaintext" },
-            checkFrequency = "edit",
-            diagnosticSeverity = "warning",
-            additionalRules = {
-              enablePickyRules = true,
-            },
-            dictionary = {
-              ["en-US"] = vim.fn.filereadable(vim.fn.expand("~/.config/ltex/dictionary.txt")) == 1
-                  and vim.fn.readfile(vim.fn.expand("~/.config/ltex/dictionary.txt"))
-                or {},
-            },
-          },
-        },
-      })
-      vim.lsp.enable("ltex")
-    end,
-  },
-
-  -- Vale diagnostics through none-ls
-  {
-    "nvimtools/none-ls.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      local null_ls = require("null-ls")
-
-      null_ls.setup({
-        sources = {
-          null_ls.builtins.diagnostics.vale.with({
-            filetypes = { "tex", "markdown", "text" },
-            extra_args = {
-              "--config",
-              vim.fn.expand("~/.config/vale/.vale.ini"),
-            },
-          }),
-        },
-      })
-    end,
-  },
-
-  -- Snippets: LuaSnip
-  {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    build = "make install_jsregexp",
-    config = function()
-      local ls = require("luasnip")
-
-      require("luasnip.loaders.from_lua").load({
-        paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
-      })
-
-      local function feedkey(key)
-        vim.api.nvim_feedkeys(
-          vim.api.nvim_replace_termcodes(key, true, true, true),
-          "n",
-          false
-        )
-      end
-
-      vim.keymap.set({ "i", "s" }, "<Tab>", function()
-        if ls.expand_or_jumpable() then
-          ls.expand_or_jump()
-        else
-          feedkey("<Tab>")
-        end
-      end, { silent = true })
-
-      vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
-        if ls.jumpable(-1) then
-          ls.jump(-1)
-        else
-          feedkey("<S-Tab>")
-        end
-      end, { silent = true })
-    end,
-  },
-
-  -- Easy align
-  {
-    "junegunn/vim-easy-align",
-    keys = {
-      { "ga", "<Plug>(EasyAlign)", mode = { "n", "x" } },
-    },
-  },
-
-})
-
--- =========================================
--- Plugin configuration
--- =========================================
-
--- VimTeX
-vim.g.vimtex_compiler_method = "latexmk"
-vim.g.vimtex_view_method = "skim"
-
--- Python
-vim.g.python_highlight_all = 1
-
--- semshi settings kept for compatibility, although the plugin is disabled.
-vim.g["semshi#simplify_markup"] = false
-vim.g["semshi#mark_selected_nodes"] = 0
-vim.cmd([[
-highlight semshiLocal guifg=#5fd7ff
-highlight semshiParameter guifg=#ffaf00
-highlight semshiAttribute guifg=#87afaf
-highlight semshiSelf guifg=#ff5f87
-]])
+require("lazy").setup("plugins")
 
 -- =========================================
 -- Autocommands
@@ -271,40 +78,40 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- Filetypes
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.f90",
-  command = "set filetype=f90",
-})
+--vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--  pattern = "*.f90",
+--  command = "set filetype=f90",
+--})
 
 vim.api.nvim_create_autocmd("Syntax", {
   pattern = "f90",
   command = "source ~/.vim/syntax/fortran.vim",
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.jnl",
-  command = "set filetype=ferret",
-})
-
-vim.api.nvim_create_autocmd("Syntax", {
-  pattern = "ferret",
-  command = "source ~/.vim/syntax/ferret.vim",
-})
+--vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--  pattern = "*.jnl",
+--  command = "set filetype=ferret",
+--})
+--
+--vim.api.nvim_create_autocmd("Syntax", {
+--  pattern = "ferret",
+--  command = "source ~/.vim/syntax/ferret.vim",
+--})
 
 -- Run shortcuts
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "python",
-  callback = function()
-    vim.keymap.set("n", "<leader>r", ":w<CR>:!python %<CR>", { buffer = true })
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "julia",
-  callback = function()
-    vim.keymap.set("n", "<leader>r", ":w<CR>:!julia %<CR>", { buffer = true })
-  end,
-})
+--vim.api.nvim_create_autocmd("FileType", {
+--  pattern = "python",
+--  callback = function()
+--    vim.keymap.set("n", "<leader>r", ":w<CR>:!python %<CR>", { buffer = true })
+--  end,
+--})
+--
+--vim.api.nvim_create_autocmd("FileType", {
+--  pattern = "julia",
+--  callback = function()
+--    vim.keymap.set("n", "<leader>r", ":w<CR>:!julia %<CR>", { buffer = true })
+--  end,
+--})
 
 -- LaTeX folding
 vim.api.nvim_create_augroup("latex_folding", { clear = true })
@@ -359,7 +166,7 @@ vim.diagnostic.config({
 -- =========================================
 -- Miscellaneous options
 -- =========================================
-vim.opt.errorformat = "%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\\ %m,%C%.%#"
+-- vim.opt.errorformat = "%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\\ %m,%C%.%#"
 vim.opt.foldmethod = "marker"
 
 vim.opt.indentkeys:remove("0}")
@@ -367,41 +174,6 @@ vim.opt.indentkeys:remove("0]")
 vim.opt.indentkeys:remove("&")
 vim.opt.indentkeys:remove("]")
 vim.opt.indentkeys:remove("}")
-
--- =========================================
--- Color scheme and highlights
--- =========================================
-vim.cmd("colorscheme onedark")
-
--- Treesitter colors similar to the old Semshi palette.
-vim.api.nvim_set_hl(0, "@parameter", { fg = "#ffaf00" })
-vim.api.nvim_set_hl(0, "@property", { fg = "#87afaf" })
-vim.api.nvim_set_hl(0, "@variable.builtin", { fg = "#ff5f87" })
-
-vim.api.nvim_set_hl(0, "@parameter.python", { fg = "#ffaf00" })
-vim.api.nvim_set_hl(0, "@property.python", { fg = "#87afaf" })
-
-vim.api.nvim_set_hl(0, "@keyword", { fg = "#c678dd" })
-vim.api.nvim_set_hl(0, "@type", { fg = "#e5c07b" })
-
-vim.api.nvim_set_hl(0, "Comment", { fg = "#9aa0a6" })
-vim.api.nvim_set_hl(0, "@comment", { link = "Comment" })
-
-vim.api.nvim_set_hl(0, "@function.call", { fg = "#61afef" })
-vim.api.nvim_set_hl(0, "@function.builtin", { fg = "#e5c07b" })
-
-vim.api.nvim_set_hl(0, "@function.python", { fg = "#61afef", bold = true })
-vim.api.nvim_set_hl(0, "@variable.python", { fg = "#4db6ac" })
-
-vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "#000000" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "#000000" })
-
--- Inactive status line color.
-vim.api.nvim_set_hl(0, "StatusLineNC", {
-  fg = "#e5c07b",
-  bg = "#3a3f4b",
-})
 
 -- =========================================
 -- Auto-reload for Codex
