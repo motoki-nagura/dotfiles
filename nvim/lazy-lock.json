@@ -1,12 +1,12 @@
 {
-  "LuaSnip": { "branch": "master", "commit": "0abc8f390b278c3b4aabc4c004ac8a088b65cf24" },
+  "LuaSnip": { "branch": "master", "commit": "642b0c595e11608b4c18219e93b88d7637af27bc" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "none-ls.nvim": { "branch": "main", "commit": "01f8e62ea11603e59ad9ff7afcfa94fd183f76d6" },
-  "nvim-lspconfig": { "branch": "master", "commit": "3371bf298c1f56efc26771ee961f461176958fb5" },
+  "nvim-lspconfig": { "branch": "master", "commit": "d224a1920728ba129880efc700d4a0180ac4ecbb" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
   "onedark.vim": { "branch": "main", "commit": "47bec7a6196a843dad195d2666c3ac84c6e80c78" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "vim-easy-align": { "branch": "master", "commit": "9815a55dbcd817784458df7a18acacc6f82b1241" },
   "vim-slime": { "branch": "main", "commit": "2cfdc3b24e7ebaa64f5a1a04b00555600c622b79" },
-  "vimtex": { "branch": "master", "commit": "5e6a06f5cec5ede3dc6ba045ef6eda13b6dccb1f" }
+  "vimtex": { "branch": "master", "commit": "a5949d2800c1866c878956d49c51fc8d003c6b99" }
 }
