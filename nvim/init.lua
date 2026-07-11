@@ -67,33 +67,6 @@ require("lazy").setup({
 
     -- Disable vim-slime even if it is still declared under lua/plugins/.
     { "jpalardy/vim-slime", enabled = false },
-      config = function(_, opts)
-        local smart_splits = require("smart-splits")
-        smart_splits.setup(opts)
-
-        local map_opts = { silent = true }
-
-        -- Move between Neovim windows, toggleterm windows, and tmux panes.
-        vim.keymap.set({ "n", "t" }, "<C-h>", smart_splits.move_cursor_left,
-          vim.tbl_extend("force", map_opts, { desc = "Move left" }))
-        vim.keymap.set({ "n", "t" }, "<C-j>", smart_splits.move_cursor_down,
-          vim.tbl_extend("force", map_opts, { desc = "Move down" }))
-        vim.keymap.set({ "n", "t" }, "<C-k>", smart_splits.move_cursor_up,
-          vim.tbl_extend("force", map_opts, { desc = "Move up" }))
-        vim.keymap.set({ "n", "t" }, "<C-l>", smart_splits.move_cursor_right,
-          vim.tbl_extend("force", map_opts, { desc = "Move right" }))
-
-        -- Resize Neovim windows or tmux panes with Alt-h/j/k/l.
-        vim.keymap.set({ "n", "t" }, "<M-h>", smart_splits.resize_left,
-          vim.tbl_extend("force", map_opts, { desc = "Resize left" }))
-        vim.keymap.set({ "n", "t" }, "<M-j>", smart_splits.resize_down,
-          vim.tbl_extend("force", map_opts, { desc = "Resize down" }))
-        vim.keymap.set({ "n", "t" }, "<M-k>", smart_splits.resize_up,
-          vim.tbl_extend("force", map_opts, { desc = "Resize up" }))
-        vim.keymap.set({ "n", "t" }, "<M-l>", smart_splits.resize_right,
-          vim.tbl_extend("force", map_opts, { desc = "Resize right" }))
-      end,
-    },
   },
 })
 
