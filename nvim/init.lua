@@ -84,14 +84,14 @@ require("lazy").setup({
 
         local map_opts = { silent = true }
 
-        -- Move between Neovim windows, toggleterm windows, and tmux panes.
-        vim.keymap.set({ "n", "t" }, "<C-h>", smart_splits.move_cursor_left,
+        -- Move with Ctrl-w followed by h/j/k/l across Neovim and tmux.
+        vim.keymap.set({ "n", "t" }, "<C-w>h", smart_splits.move_cursor_left,
           vim.tbl_extend("force", map_opts, { desc = "Move left" }))
-        vim.keymap.set({ "n", "t" }, "<C-j>", smart_splits.move_cursor_down,
+        vim.keymap.set({ "n", "t" }, "<C-w>j", smart_splits.move_cursor_down,
           vim.tbl_extend("force", map_opts, { desc = "Move down" }))
-        vim.keymap.set({ "n", "t" }, "<C-k>", smart_splits.move_cursor_up,
+        vim.keymap.set({ "n", "t" }, "<C-w>k", smart_splits.move_cursor_up,
           vim.tbl_extend("force", map_opts, { desc = "Move up" }))
-        vim.keymap.set({ "n", "t" }, "<C-l>", smart_splits.move_cursor_right,
+        vim.keymap.set({ "n", "t" }, "<C-w>l", smart_splits.move_cursor_right,
           vim.tbl_extend("force", map_opts, { desc = "Move right" }))
 
         -- Resize Neovim windows or tmux panes with Alt-h/j/k/l.
