@@ -67,31 +67,20 @@ require("lazy").setup({
 
     -- Disable vim-slime even if it is still declared under lua/plugins/.
     { "jpalardy/vim-slime", enabled = false },
-
-    -- Seamless navigation and resizing across Neovim splits and tmux panes.
-    {
-      "mrjones2014/smart-splits.nvim",
-      version = ">=2.0.0",
-      lazy = false,
-      opts = {
-        at_edge = "stop",
-        multiplexer_integration = "tmux",
-        default_amount = 3,
-      },
       config = function(_, opts)
         local smart_splits = require("smart-splits")
         smart_splits.setup(opts)
 
         local map_opts = { silent = true }
 
-        -- Move with Ctrl-w followed by h/j/k/l across Neovim and tmux.
-        vim.keymap.set({ "n", "t" }, "<C-w>h", smart_splits.move_cursor_left,
+        -- Move between Neovim windows, toggleterm windows, and tmux panes.
+        vim.keymap.set({ "n", "t" }, "<C-h>", smart_splits.move_cursor_left,
           vim.tbl_extend("force", map_opts, { desc = "Move left" }))
-        vim.keymap.set({ "n", "t" }, "<C-w>j", smart_splits.move_cursor_down,
+        vim.keymap.set({ "n", "t" }, "<C-j>", smart_splits.move_cursor_down,
           vim.tbl_extend("force", map_opts, { desc = "Move down" }))
-        vim.keymap.set({ "n", "t" }, "<C-w>k", smart_splits.move_cursor_up,
+        vim.keymap.set({ "n", "t" }, "<C-k>", smart_splits.move_cursor_up,
           vim.tbl_extend("force", map_opts, { desc = "Move up" }))
-        vim.keymap.set({ "n", "t" }, "<C-w>l", smart_splits.move_cursor_right,
+        vim.keymap.set({ "n", "t" }, "<C-l>", smart_splits.move_cursor_right,
           vim.tbl_extend("force", map_opts, { desc = "Move right" }))
 
         -- Resize Neovim windows or tmux panes with Alt-h/j/k/l.
@@ -167,6 +156,22 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev)
+
+-- Leave terminal insert mode with Esc.
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
+-- Move between Neovim windows with Ctrl-w followed by h/j/k/l.
+-- Normal mode already supports these keys natively; the mappings below make
+-- the behavior explicit and add the same operation in Terminal mode.
+vim.keymap.set("n", "<C-w>h", "<C-w>h", { silent = true, desc = "Move window left" })
+vim.keymap.set("n", "<C-w>j", "<C-w>j", { silent = true, desc = "Move window down" })
+vim.keymap.set("n", "<C-w>k", "<C-w>k", { silent = true, desc = "Move window up" })
+vim.keymap.set("n", "<C-w>l", "<C-w>l", { silent = true, desc = "Move window right" })
+
+vim.keymap.set("t", "<C-w>h", [[<Cmd>wincmd h<CR>]], { silent = true, desc = "Move window left" })
+vim.keymap.set("t", "<C-w>j", [[<Cmd>wincmd j<CR>]], { silent = true, desc = "Move window down" })
+vim.keymap.set("t", "<C-w>k", [[<Cmd>wincmd k<CR>]], { silent = true, desc = "Move window up" })
+vim.keymap.set("t", "<C-w>l", [[<Cmd>wincmd l<CR>]], { silent = true, desc = "Move window right" })
 
 -- Leave terminal insert mode with Esc.
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
