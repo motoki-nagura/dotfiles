@@ -133,21 +133,39 @@ vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev)
 -- Leave terminal insert mode with Esc.
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
--- Move between Neovim windows with Ctrl-w followed by h/j/k/l.
--- Normal mode already supports these keys natively; the mappings below make
--- the behavior explicit and add the same operation in Terminal mode.
-vim.keymap.set("n", "<C-w>h", "<C-w>h", { silent = true, desc = "Move window left" })
-vim.keymap.set("n", "<C-w>j", "<C-w>j", { silent = true, desc = "Move window down" })
-vim.keymap.set("n", "<C-w>k", "<C-w>k", { silent = true, desc = "Move window up" })
-vim.keymap.set("n", "<C-w>l", "<C-w>l", { silent = true, desc = "Move window right" })
+-- In Terminal mode, first leave terminal-input mode and then move windows.
+for _, direction in ipairs({ "h", "j", "k", "l" }) do
+  vim.keymap.set(
+    "t",
+    "<C-w>" .. direction,
+    "<C-\\><C-n><C-w>" .. direction,
+    { silent = true, desc = "Move to window " .. direction }
+  )
+end
 
-vim.keymap.set("t", "<C-w>h", [[<Cmd>wincmd h<CR>]], { silent = true, desc = "Move window left" })
-vim.keymap.set("t", "<C-w>j", [[<Cmd>wincmd j<CR>]], { silent = true, desc = "Move window down" })
-vim.keymap.set("t", "<C-w>k", [[<Cmd>wincmd k<CR>]], { silent = true, desc = "Move window up" })
-vim.keymap.set("t", "<C-w>l", [[<Cmd>wincmd l<CR>]], { silent = true, desc = "Move window right" })
+-- Automatically enter Terminal mode when moving into a terminal window.
+-- Schedule startinsert so it runs after the window/buffer switch has completed.
+local terminal_insert_group =
+  vim.api.nvim_create_augroup("terminal_auto_insert", { clear = true })
 
--- Leave terminal insert mode with Esc.
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter", "WinEnter" }, {
+  group = terminal_insert_group,
+  pattern = "*",
+  callback = function(args)
+    vim.schedule(function()
+      -- The user may have moved again before the scheduled callback runs.
+      if not vim.api.nvim_buf_is_valid(args.buf) then
+        return
+      end
+      if vim.api.nvim_get_current_buf() ~= args.buf then
+        return
+      end
+      if vim.bo[args.buf].buftype == "terminal" then
+        vim.cmd("startinsert")
+      end
+    end)
+  end,
+})
 
 -- =========================================
 -- Diagnostics
