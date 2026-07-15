@@ -1,6 +1,8 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  -- Track the current upstream version. The old 0.1.x branch uses a removed
+  -- Treesitter API on recent Neovim versions.
+  version = false,
   dependencies = { "nvim-lua/plenary.nvim" },
   cmd = "Telescope",
   keys = {
