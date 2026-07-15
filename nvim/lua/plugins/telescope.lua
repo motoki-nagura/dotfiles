@@ -1,3 +1,10 @@
+-- Telescope keymap quick reference:
+--   <leader>ff  Find files below the current working directory.
+--   <leader>fg  Search text across files with ripgrep.
+--   <leader>fb  Search and switch between open buffers.
+--   <leader>fh  Search Neovim and plugin help tags.
+--   <leader>fd  Choose a directory, then find files below it.
+
 return {
   "nvim-telescope/telescope.nvim",
   -- Track the current upstream version. The old 0.1.x branch uses a removed
@@ -33,6 +40,23 @@ return {
         require("telescope.builtin").help_tags()
       end,
       desc = "Help tags",
+    },
+    {
+      "<leader>fd",
+      function()
+        local directory = vim.fn.input(
+          "Search directory: ",
+          vim.fn.getcwd() .. "/",
+          "dir"
+        )
+
+        if directory ~= "" then
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.expand(directory),
+          })
+        end
+      end,
+      desc = "Find files in directory",
     },
   },
   opts = {},
