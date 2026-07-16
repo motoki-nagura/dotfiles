@@ -1,7 +1,7 @@
 -- Telescope keymap quick reference:
 --   <leader>ff  Find files below the current working directory.
 --   <leader>fg  Search text across files with ripgrep.
---   <leader>fb  Search and switch between open buffers.
+--   <leader>fb  Search open buffers; press Ctrl-D to close the selected buffer.
 --   <leader>fh  Search Neovim and plugin help tags.
 --   <leader>fd  Choose a directory, then find files below it.
 
@@ -64,6 +64,15 @@ return {
       buffers = {
         -- Keep the filename visible even when the full path is long.
         path_display = { "filename_first" },
+        mappings = {
+          i = {
+            ["<C-d>"] = require("telescope.actions").delete_buffer,
+          },
+          n = {
+            ["<C-d>"] = require("telescope.actions").delete_buffer,
+            ["dd"] = require("telescope.actions").delete_buffer,
+          },
+        },
       },
     },
   },
