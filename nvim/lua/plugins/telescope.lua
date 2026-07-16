@@ -59,5 +59,12 @@ return {
       desc = "Find files in directory",
     },
   },
-  opts = {},
+  opts = {
+    pickers = {
+      buffers = {
+        -- Keep the filename visible even when the full path is long.
+        path_display = { "filename_first" },
+      },
+    },
+  },
 }
