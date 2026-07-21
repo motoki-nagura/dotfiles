@@ -65,6 +65,9 @@ require("lazy").setup({
     -- Load plugin specifications from ~/.config/nvim/lua/plugins/*.lua.
     { import = "plugins" },
 
+    -- zoxide integration. Provides :Z and :Zi commands.
+    { "nanotee/zoxide.vim" },
+
     -- Disable vim-slime even if it is still declared under lua/plugins/.
     { "jpalardy/vim-slime", enabled = false },
   },
