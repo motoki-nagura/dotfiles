@@ -304,10 +304,11 @@ return {
   -- Misc
   -- ========================
   s({ trig = "quad",     name = "quad",         wordTrig = false }, { t("\\quad ") }),
-  s({ trig = "qquad",    name = "qquad",        wordTrig = false }, { t("\\qquad ") }),
+  s({ trig = ";qq",      name = "qquad",        wordTrig = false }, { t("\\qquad ") }),
   s({ trig = "nonumber", name = "no number",    wordTrig = false }, { t("\\nonumber ") }),
   s({ trig = "noindent", name = "no indent",    wordTrig = false }, { t("\\noindent ") }),
-  s({ trig = "dispstyl", name = "displaystyle", wordTrig = false }, { t("\\displaystyle ") }),
+  s({ trig = ";ds",      name = "displaystyle", wordTrig = false }, { t("\\displaystyle ") }),
+  s({ trig = "prime",    name = "prime",        wordTrig = false }, { t("\\prime ") }),
   s({ trig = "textbf",   name = "text bold",    wordTrig = false }, fmt("\\textbf{{{}}}{}", { i(1), i(0) }) ),
   s({ trig = "vspace",   name = "vspace",       wordTrig = false }, fmt("\\vspace{{{}}}{}", { i(1), i(0) }) ),
 
