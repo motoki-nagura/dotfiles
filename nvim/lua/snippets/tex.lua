@@ -101,6 +101,9 @@ return {
 
   s({ trig = ";D", name = "Delta", wordTrig = false }, { t("\\Delta") }),
 
+  s({ trig = ";vphi", name = "varphi",     wordTrig = false }, { t("\\varphi") }),
+  s({ trig = ";veps", name = "varepsilon", wordTrig = false }, { t("\\varepsilon") }),
+
   -- ========================
   -- Brackets
   -- ========================
