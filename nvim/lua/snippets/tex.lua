@@ -100,6 +100,7 @@ return {
   s({ trig = ";x",   name = "xi",    wordTrig = false }, { t("\\xi") }),
 
   s({ trig = ";D", name = "Delta", wordTrig = false }, { t("\\Delta") }),
+  s({ trig = ";O", name = "Omega", wordTrig = false }, { t("\\Omega") }),
 
   s({ trig = ";vphi", name = "varphi",     wordTrig = false }, { t("\\varphi") }),
   s({ trig = ";veps", name = "varepsilon", wordTrig = false }, { t("\\varepsilon") }),
