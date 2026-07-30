@@ -1,0 +1,85 @@
+time=2026-07-28T11:05:56.427+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=7 pixels_per_row=18
+time=2026-07-28T11:05:56.427+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=7 pixels_per_row=18
+time=2026-07-28T11:05:56.509+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-192-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T11:08:45.592+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=7 pixels_per_row=18
+time=2026-07-28T11:08:45.593+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=7 pixels_per_row=18
+time=2026-07-28T11:08:45.601+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-24-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T11:18:31.745+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T11:18:31.746+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T11:18:31.752+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-318-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T11:22:39.648+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T11:22:39.648+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T11:22:39.654+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-211-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T11:22:48.210+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:48.211+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:48.214+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:48.219+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:48.223+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:48.231+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:48.249+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:48.849+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:51.582+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:52.149+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:52.552+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:57.026+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:22:57.733+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T11:26:24.339+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T11:26:24.339+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T11:26:24.345+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-449-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T11:28:00.952+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T11:28:00.952+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T11:28:00.958+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-803-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T13:05:43.617+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T13:05:43.617+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T13:05:43.688+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-134-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T13:06:06.557+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T13:06:08.116+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T14:05:37.524+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T14:05:38.331+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T14:05:39.339+09:00 level=ERROR msg="exif error" error=EOF
+time=2026-07-28T14:25:54.852+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T14:25:54.852+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T14:25:54.859+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-129-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T14:28:55.128+09:00 level=ERROR msg="Command execution failed" retCode=1 error="exit status 1" output="2026/07/28 14:28:55 An error occurred! Please create an issue at: https://github.com/jesseduffield/lazygit/issues\n\n*fs.PathError open /dev/tty: device not configured\ngithub.com/jesseduffield/lazygit/pkg/app/app.go:56 (0x10504061c)\ngithub.com/jesseduffield/lazygit/pkg/app/entry_point.go:177 (0x105042278)\ngithub.com/jesseduffield/lazygit/main.go:23 (0x105043498)\ninternal/runtime/atomic/types.go:194 (0x104a45454)\nruntime/asm_arm64.s:1447 (0x104a828b4)\n"
+time=2026-07-28T14:28:59.544+09:00 level=ERROR msg="Command execution failed" retCode=127 error="exit status 127" output="/bin/sh: !lazygit: command not found\n"
+time=2026-07-28T14:29:06.849+09:00 level=ERROR msg="Command execution failed" retCode=127 error="exit status 127" output="/bin/sh: /bin/lazygit: No such file or directory\n"
+time=2026-07-28T14:29:19.640+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T14:29:19.640+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T14:29:19.647+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-871-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:07:20.532+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:07:20.532+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:07:20.538+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-703-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:13:33.811+09:00 level=ERROR msg="cannot get stats" path=/Users/nagura/paths error="stat /Users/nagura/paths: no such file or directory"
+time=2026-07-28T15:13:33.837+09:00 level=ERROR msg="Zoxide query error" originalPath=paths error="query failed due to unexpected command execution error : command exited with code 1 : exit status 1\nstderr : zoxide: no match found\n"
+time=2026-07-28T15:13:33.838+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:13:33.838+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:13:33.845+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-23-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:14:45.575+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:14:45.575+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:14:45.581+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-360-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:14:49.295+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:14:49.295+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:14:49.301+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-594-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:14:53.254+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:14:53.254+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:14:53.260+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-676-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:15:03.136+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:15:03.136+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:15:03.142+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-186-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:16:12.591+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:16:12.591+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:16:12.597+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-280-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:16:21.545+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:16:21.545+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:16:21.551+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-328-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:16:25.612+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:16:25.613+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:16:25.619+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-356-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:16:28.948+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:16:28.948+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:16:28.954+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-187-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:17:14.709+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:17:14.709+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:17:14.715+09:00 level=ERROR msg="Rendered output data inconsistency" name=R-144-preview lineCnt=1 totalHeight=0 totalWidth=0 maxW=0
+time=2026-07-28T15:17:16.615+09:00 level=INFO msg="Successfully detected terminal cell size via ioctl" pixels_per_column=8 pixels_per_row=19
+time=2026-07-28T15:17:16.615+09:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=19

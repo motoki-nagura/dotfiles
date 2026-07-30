@@ -100,6 +100,10 @@ return {
   s({ trig = ";x",   name = "xi",    wordTrig = false }, { t("\\xi") }),
 
   s({ trig = ";D", name = "Delta", wordTrig = false }, { t("\\Delta") }),
+  s({ trig = ";O", name = "Omega", wordTrig = false }, { t("\\Omega") }),
+
+  s({ trig = ";vphi", name = "varphi",     wordTrig = false }, { t("\\varphi") }),
+  s({ trig = ";veps", name = "varepsilon", wordTrig = false }, { t("\\varepsilon") }),
 
   -- ========================
   -- Brackets
@@ -184,7 +188,7 @@ return {
   -- ========================
   -- Derivatives & Integrals
   -- ========================
-  s({ trig = "pt",       name = "partial",  wordTrig = false }, { t("\\pt") }),
+  s({ trig = "pt",       name = "partial",  wordTrig = false }, { t("\\pt ") }),
 
   s({ trig = "pd", name = "partial derivative" },
     fmt("\\frac{{\\pt {}}}{{\\pt {}}}{}", { i(1, "f"), i(2, "x"), i(0) }),
@@ -304,10 +308,11 @@ return {
   -- Misc
   -- ========================
   s({ trig = "quad",     name = "quad",         wordTrig = false }, { t("\\quad ") }),
-  s({ trig = "qquad",    name = "qquad",        wordTrig = false }, { t("\\qquad ") }),
+  s({ trig = ";qq",      name = "qquad",        wordTrig = false }, { t("\\qquad ") }),
   s({ trig = "nonumber", name = "no number",    wordTrig = false }, { t("\\nonumber ") }),
   s({ trig = "noindent", name = "no indent",    wordTrig = false }, { t("\\noindent ") }),
-  s({ trig = "dispstyl", name = "displaystyle", wordTrig = false }, { t("\\displaystyle ") }),
+  s({ trig = ";ds",      name = "displaystyle", wordTrig = false }, { t("\\displaystyle ") }),
+  s({ trig = "prime",    name = "prime",        wordTrig = false }, { t("\\prime ") }),
   s({ trig = "textbf",   name = "text bold",    wordTrig = false }, fmt("\\textbf{{{}}}{}", { i(1), i(0) }) ),
   s({ trig = "vspace",   name = "vspace",       wordTrig = false }, fmt("\\vspace{{{}}}{}", { i(1), i(0) }) ),
 
