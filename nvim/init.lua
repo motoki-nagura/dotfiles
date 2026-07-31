@@ -68,6 +68,18 @@ require("lazy").setup({
     -- zoxide integration. Provides :Z and :Zi commands.
     { "nanotee/zoxide.vim" },
 
+    -- Render Markdown directly inside Neovim.
+    -- Use :RenderMarkdown toggle to switch rendering on or off.
+    {
+      "MeanderingProgrammer/render-markdown.nvim",
+      ft = { "markdown", "Avante" },
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+      },
+      opts = {},
+    },
+
     -- Disable vim-slime even if it is still declared under lua/plugins/.
     { "jpalardy/vim-slime", enabled = false },
   },
