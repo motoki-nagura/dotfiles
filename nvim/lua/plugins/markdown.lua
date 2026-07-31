@@ -2,7 +2,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
 
-    -- filetypeによる遅延ロードをやめ、起動時に読み込む
+    -- Stop delayed load using filetype. Load when launched.
     lazy = false,
 
     dependencies = {
