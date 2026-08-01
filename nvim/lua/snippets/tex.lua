@@ -270,6 +270,9 @@ return {
   s({ trig = "sin", name = "sine",    wordTrig = false }, { t("\\sin") }),
   s({ trig = "tan", name = "tangent", wordTrig = false }, { t("\\tan") }),
 
+  s({ trig = ";e%^", regTrig = true }, fmta("e^{<>}", {i(1),}) ),  -- ;e^ → e^{}
+  s({ trig = ";exp" }, fmta("\\exp\\left[ <> \\right]", {i(1),})), -- ;exp → \exp\left[ \right]
+
   -- ========================
   -- Other symbols
   -- ========================

@@ -211,3 +211,12 @@ vim.opt.autoread = true
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
   command = "checktime",
 })
+
+-- =========================================
+-- Highlight extra spaces
+-- =========================================
+vim.opt.list = true
+vim.opt.listchars = {
+  trail = "·",
+  tab = "→ ",
+}
