@@ -163,6 +163,16 @@ return {
     }
   ),
 
+  s({ trig = "vmat(%d+)x(%d+)", name = "vmatrix generator", regTrig = true, wordTrig = false },
+    {
+      t("\\begin{vmatrix}"),
+      t({ "", "" }),
+      d(1, matrix_nodes),
+      t({ "", "\\end{vmatrix}" }),
+      i(0),
+    }
+  ),
+
   -- ========================
   -- Align environment
   -- ========================
