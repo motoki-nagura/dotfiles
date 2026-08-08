@@ -198,7 +198,7 @@ return {
   -- ========================
   -- Derivatives & Integrals
   -- ========================
-  s({ trig = "pt",       name = "partial",  wordTrig = false }, { t("\\pt ") }),
+  s({ trig = "pt", name = "partial",  wordTrig = false }, { t("\\pt ") }),
 
   s({ trig = "pd", name = "partial derivative" },
     fmt("\\frac{{\\pt {}}}{{\\pt {}}}{}", { i(1, "f"), i(2, "x"), i(0) }),
@@ -311,6 +311,10 @@ return {
 
   s({ trig = "hat", name = "hat", wordTrig = false },
     fmt("\\hat{{{}}}{}", { i(1), i(0) })
+  ),
+
+  s({ trig = "tilde", name = "tilde", wordTrig = false },
+    fmt("\\tilde{{{}}}{}", { i(1), i(0) })
   ),
 
   s({ trig = "check", name = "check", wordTrig = false },
