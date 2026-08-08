@@ -301,7 +301,7 @@ return {
 
   s({ trig = "sum", name = "sum", wordTrig = false },
     fmt([[
-\sum_{{{}}}^{{{}}} {} {}]], { i(1), i(2), i(3), i(0) })
+\sum_{{{}}}^{{{}}} {}]], { i(1), i(2), i(3) })
   ),
 
   s({ trig = "prod", name = "product", wordTrig = false },
