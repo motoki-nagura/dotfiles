@@ -5,6 +5,9 @@ return {
   config = function()
     local ls = require("luasnip")
 
+    -- Use TeX snippets in Markdown files as well.
+    ls.filetype_extend("markdown", { "tex" })
+
     require("luasnip.loaders.from_lua").load({
       paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
     })
