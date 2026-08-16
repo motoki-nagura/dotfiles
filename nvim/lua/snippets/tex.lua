@@ -332,6 +332,7 @@ return {
   s({ trig = "prime",    name = "prime",        wordTrig = false }, { t("\\prime ") }),
   s({ trig = "textbf",   name = "text bold",    wordTrig = false }, fmt("\\textbf{{{}}}{}", { i(1), i(0) }) ),
   s({ trig = "vspace",   name = "vspace",       wordTrig = false }, fmt("\\vspace{{{}}}{}", { i(1), i(0) }) ),
+  s({ trig = "hspace",   name = "hspace",       wordTrig = false }, fmt("\\hspace{{{}}}{}", { i(1), i(0) }) ),
 
   -- ========================
   -- Non LaTeX symbols
