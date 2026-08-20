@@ -10,6 +10,6 @@ return {
     }
 
     -- macOS PDF viewer with SyncTeX support.
-    vim.g.vimtex_view_method = "sioyek"
+    vim.g.vimtex_view_method = "Skim"
   end,
 }
