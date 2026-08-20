@@ -59,21 +59,25 @@ return {
       desc = "Find files in directory",
     },
   },
-  opts = {
-    pickers = {
-      buffers = {
-        -- Keep the filename visible even when the full path is long.
-        path_display = { "filename_first" },
-        mappings = {
-          i = {
-            ["<C-d>"] = require("telescope.actions").delete_buffer,
-          },
-          n = {
-            ["<C-d>"] = require("telescope.actions").delete_buffer,
-            ["dd"] = require("telescope.actions").delete_buffer,
+  config = function()
+    local actions = require("telescope.actions")
+
+    require("telescope").setup({
+      pickers = {
+        buffers = {
+          -- Keep the filename visible even when the full path is long.
+          path_display = { "filename_first" },
+          mappings = {
+            i = {
+              ["<C-d>"] = actions.delete_buffer,
+            },
+            n = {
+              ["<C-d>"] = actions.delete_buffer,
+              ["dd"] = actions.delete_buffer,
+            },
           },
         },
       },
-    },
-  },
+    })
+  end,
 }
