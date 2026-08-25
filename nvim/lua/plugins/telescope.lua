@@ -237,8 +237,8 @@ return {
         buffers = {
           -- Keep the filename visible even when the full path is long.
           path_display = {
-            "filename_first",
             "truncate",
+            "filename_first",
           },
           mappings = {
             i = {
