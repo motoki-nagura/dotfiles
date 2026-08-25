@@ -66,7 +66,9 @@ return {
       pickers = {
         buffers = {
           -- Keep the filename visible even when the full path is long.
-          path_display = { "filename_first" },
+          path_display = { "filename_first",
+                           "truncate",
+          },
           mappings = {
             i = {
               ["<C-d>"] = actions.delete_buffer,
