@@ -13,30 +13,6 @@
 --   Ctrl-L      Show the currently added directories.
 --   Ctrl-R      Clear all added directories.
 
-
--- Show the filename first and keep only the end of long parent paths.
--- This is used both by builtin pickers and the custom multi-directory picker.
-local function filename_first_truncated_path(_, path)
-  local normalized = vim.fs.normalize(path)
-  local filename = vim.fs.basename(normalized)
-  local parent = vim.fs.dirname(normalized)
-
-  if not parent or parent == "." or parent == "" then
-    return filename
-  end
-
-  -- Keep the right-hand side of the directory path. Telescope will still
-  -- clip the final rendered line if the picker itself is narrower.
-  local max_parent_chars = 48
-  if vim.fn.strdisplaywidth(parent) > max_parent_chars then
-    local chars = vim.fn.strchars(parent)
-    local start = math.max(chars - max_parent_chars + 1, 0)
-    parent = "…" .. vim.fn.strcharpart(parent, start, max_parent_chars)
-  end
-
-  return string.format("%s  %s", filename, parent)
-end
-
 local function multi_directory_files()
   local pickers = require("telescope.pickers")
   local finders = require("telescope.finders")
@@ -164,9 +140,7 @@ local function multi_directory_files()
             .new({}, {
               prompt_title = "Files in selected directories",
               finder = finders.new_oneshot_job(command, {
-                entry_maker = make_entry.gen_from_file({
-                  path_display = filename_first_truncated_path,
-                }),
+                entry_maker = make_entry.gen_from_file({}),
               }),
               previewer = previewers.vim_buffer_cat.new({}),
               sorter = sorters.get_fuzzy_file(),
@@ -261,8 +235,11 @@ return {
     require("telescope").setup({
       pickers = {
         buffers = {
-          -- Always show the filename first and only the tail of a long parent path.
-          path_display = filename_first_truncated_path,
+          -- Keep the filename visible even when the full path is long.
+          path_display = {
+            "filename_first",
+            "truncate",
+          },
           mappings = {
             i = {
               ["<C-d>"] = actions.delete_buffer,
