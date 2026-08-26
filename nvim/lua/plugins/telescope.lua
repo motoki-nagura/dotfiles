@@ -13,27 +13,25 @@
 --   Ctrl-L      Show the currently added directories.
 --   Ctrl-R      Clear all added directories.
 
--- Display the filename first, then only the tail of a long parent path.
+-- Keep only the tail of long paths so deeply nested files stay readable.
 -- Used by both builtin Telescope pickers and the custom multi-directory picker.
-local function filename_first_truncated_path(_, path)
+local function tail_truncated_path(_, path)
   local normalized = vim.fs.normalize(path)
-  local filename = vim.fs.basename(normalized)
-  local parent = vim.fs.dirname(normalized)
+  local max_chars = 64
 
-  if not parent or parent == "." or parent == "" then
-    return filename
+  if vim.fn.strdisplaywidth(normalized) <= max_chars then
+    return normalized
   end
 
-  local max_parent_chars = 48
-
-  if vim.fn.strdisplaywidth(parent) > max_parent_chars then
-    local chars = vim.fn.strchars(parent)
-    local start = math.max(chars - max_parent_chars, 0)
-    parent = "…" .. vim.fn.strcharpart(parent, start, max_parent_chars)
-  end
-
-  return string.format("%s  %s", filename, parent)
+  local chars = vim.fn.strchars(normalized)
+  local start = math.max(chars - max_chars, 0)
+  return "…" .. vim.fn.strcharpart(normalized, start, max_chars)
 end
+
+-- Persist <leader>fm search targets for the lifetime of this Neovim process.
+-- Closing Telescope with Esc does not reload this Lua module, so these values remain.
+local selected_dirs = {}
+local selected_set = {}
 
 local function multi_directory_files()
   local pickers = require("telescope.pickers")
@@ -44,8 +42,6 @@ local function multi_directory_files()
   local previewers = require("telescope.previewers")
   local make_entry = require("telescope.make_entry")
 
-  local selected_dirs = {}
-  local selected_set = {}
   local current_dir = vim.fn.getcwd()
 
   local function normalize(path)
@@ -163,7 +159,7 @@ local function multi_directory_files()
               prompt_title = "Files in selected directories",
               finder = finders.new_oneshot_job(command, {
                 entry_maker = make_entry.gen_from_file({
-                  path_display = filename_first_truncated_path,
+                  path_display = tail_truncated_path,
                 }),
               }),
               previewer = previewers.vim_buffer_cat.new({}),
@@ -260,7 +256,7 @@ return {
       pickers = {
         buffers = {
           -- Keep the filename visible and show only the tail of long parent paths.
-          path_display = filename_first_truncated_path,
+          path_display = tail_truncated_path,
           mappings = {
             i = {
               ["<C-d>"] = actions.delete_buffer,
