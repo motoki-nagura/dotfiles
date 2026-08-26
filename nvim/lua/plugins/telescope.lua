@@ -17,7 +17,7 @@
 -- Used by both builtin Telescope pickers and the custom multi-directory picker.
 local function tail_truncated_path(_, path)
   local normalized = vim.fs.normalize(path)
-  local max_chars = 58
+  local max_chars = 64
 
   if vim.fn.strdisplaywidth(normalized) <= max_chars then
     return normalized
