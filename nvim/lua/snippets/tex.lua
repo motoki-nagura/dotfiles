@@ -292,6 +292,7 @@ return {
   s({ trig = "rarw",    name = "right arrow",              wordTrig = false }, { t("\\rightarrow ") }),
   s({ trig = "cdot",    name = "cdot",                     wordTrig = false }, { t("\\cdot ") }),
   s({ trig = "cdots",   name = "cdots",                    wordTrig = false }, { t("\\cdots ") }),
+  s({ trig = "ldots",   name = "ldots",                    wordTrig = false }, { t("\\ldots ") }),
   s({ trig = "vdots",   name = "vdots",                    wordTrig = false }, { t("\\vdots ") }),
   s({ trig = "neq",     name = "not equal to",             wordTrig = false }, { t("\\neq ") }),
   s({ trig = "ge",      name = "greater than or equal to", wordTrig = false }, { t("\\ge ") }),
