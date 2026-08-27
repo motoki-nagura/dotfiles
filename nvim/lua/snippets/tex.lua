@@ -99,9 +99,10 @@ return {
   s({ trig = ";t",   name = "theta", wordTrig = false }, { t("\\theta") }),
   s({ trig = ";x",   name = "xi",    wordTrig = false }, { t("\\xi") }),
 
-  s({ trig = ";P", name = "Pi",    wordTrig = false }, { t("\\Pi") }),
-  s({ trig = ";D", name = "Delta", wordTrig = false }, { t("\\Delta") }),
-  s({ trig = ";O", name = "Omega", wordTrig = false }, { t("\\Omega") }),
+  s({ trig = ";D", name = "Delta",  wordTrig = false }, { t("\\Delta") }),
+  s({ trig = ";L", name = "Lambda", wordTrig = false }, { t("\\Lambda") }),
+  s({ trig = ";O", name = "Omega",  wordTrig = false }, { t("\\Omega") }),
+  s({ trig = ";P", name = "Pi",     wordTrig = false }, { t("\\Pi") }),
 
   s({ trig = ";vphi", name = "varphi",     wordTrig = false }, { t("\\varphi") }),
   s({ trig = ";veps", name = "varepsilon", wordTrig = false }, { t("\\varepsilon") }),
