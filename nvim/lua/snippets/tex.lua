@@ -257,12 +257,16 @@ return {
     fmt("\\mathcal{{{}}}{}", { i(1), i(0) })
   ),
 
-    s(
-    { trig = "bm", name = "\\bm{}", wordTrig = false },
-    fmta("\\bm{<>}<>", {
-      i(1),
-      i(0),
-    })
+  s({ trig = "msc", name = "mathscr {}", wordTrig = false },
+    fmt("\\mathscr{{{}}}{}", { i(1), i(0) })
+  ),
+
+  s(
+  { trig = "bm", name = "\\bm{}", wordTrig = false },
+  fmta("\\bm{<>}<>", {
+    i(1),
+    i(0),
+  })
   ),
 
   -- ========================
