@@ -81,23 +81,24 @@ return {
   -- ========================
   -- Greek letters
   -- ========================
-  s({ trig = ";a",   name = "alpha", wordTrig = false }, { t("\\alpha") }),
-  s({ trig = ";b",   name = "beta",  wordTrig = false }, { t("\\beta") }),
-  s({ trig = ";d",   name = "delta", wordTrig = false }, { t("\\delta") }),
-  s({ trig = ";e",   name = "eta",   wordTrig = false }, { t("\\eta") }),
-  s({ trig = ";f",   name = "phi",   wordTrig = false }, { t("\\phi") }),
-  s({ trig = ";g",   name = "gamma", wordTrig = false }, { t("\\gamma") }),
-  s({ trig = ";k",   name = "kappa", wordTrig = false }, { t("\\kappa") }),
-  s({ trig = ";l",   name = "lambda",wordTrig = false }, { t("\\lambda") }),
-  s({ trig = ";m",   name = "mu",    wordTrig = false }, { t("\\mu") }),
-  s({ trig = ";o",   name = "omega", wordTrig = false }, { t("\\omega") }),
-  s({ trig = ";p",   name = "pi",    wordTrig = false }, { t("\\pi") }),
-  s({ trig = ";ph",  name = "phi",   wordTrig = false }, { t("\\phi") }),
-  s({ trig = ";psi", name = "psi",   wordTrig = false }, { t("\\psi") }),
-  s({ trig = ";r",   name = "rho",   wordTrig = false }, { t("\\rho") }),
-  s({ trig = ";s",   name = "sigma", wordTrig = false }, { t("\\sigma") }),
-  s({ trig = ";t",   name = "theta", wordTrig = false }, { t("\\theta") }),
-  s({ trig = ";x",   name = "xi",    wordTrig = false }, { t("\\xi") }),
+  s({ trig = ";a",   name = "alpha",   wordTrig = false }, { t("\\alpha") }),
+  s({ trig = ";b",   name = "beta",    wordTrig = false }, { t("\\beta") }),
+  s({ trig = ";d",   name = "delta",   wordTrig = false }, { t("\\delta") }),
+  s({ trig = ";e",   name = "eta",     wordTrig = false }, { t("\\eta") }),
+  s({ trig = ";ep",  name = "epsilon", wordTrig = false }, { t("\\epsilon") }),
+  s({ trig = ";f",   name = "phi",     wordTrig = false }, { t("\\phi") }),
+  s({ trig = ";g",   name = "gamma",   wordTrig = false }, { t("\\gamma") }),
+  s({ trig = ";k",   name = "kappa",   wordTrig = false }, { t("\\kappa") }),
+  s({ trig = ";l",   name = "lambda",  wordTrig = false }, { t("\\lambda") }),
+  s({ trig = ";m",   name = "mu",      wordTrig = false }, { t("\\mu") }),
+  s({ trig = ";o",   name = "omega",   wordTrig = false }, { t("\\omega") }),
+  s({ trig = ";p",   name = "pi",      wordTrig = false }, { t("\\pi") }),
+  s({ trig = ";ph",  name = "phi",     wordTrig = false }, { t("\\phi") }),
+  s({ trig = ";psi", name = "psi",     wordTrig = false }, { t("\\psi") }),
+  s({ trig = ";r",   name = "rho",     wordTrig = false }, { t("\\rho") }),
+  s({ trig = ";s",   name = "sigma",   wordTrig = false }, { t("\\sigma") }),
+  s({ trig = ";t",   name = "theta",   wordTrig = false }, { t("\\theta") }),
+  s({ trig = ";x",   name = "xi",      wordTrig = false }, { t("\\xi") }),
 
   s({ trig = ";D",  name = "Delta",  wordTrig = false }, { t("\\Delta") }),
   s({ trig = ";G",  name = "Gamma",  wordTrig = false }, { t("\\Gamma") }),
@@ -107,7 +108,7 @@ return {
   s({ trig = ";Ph", name = "Phi",    wordTrig = false }, { t("\\Phi") }),
 
   s({ trig = ";vphi", name = "varphi",     wordTrig = false }, { t("\\varphi") }),
-  s({ trig = ";veps", name = "varepsilon", wordTrig = false }, { t("\\varepsilon") }),
+  s({ trig = ";vep",  name = "varepsilon", wordTrig = false }, { t("\\varepsilon") }),
 
   -- ========================
   -- Brackets
@@ -275,6 +276,7 @@ return {
   s({ trig = "inn",      name = "in",       wordTrig = false }, { t("\\in ") }),
   s({ trig = "subset",   name = "subset",   wordTrig = false }, { t("\\subset ") }),
   s({ trig = "subseteq", name = "subseteq", wordTrig = false }, { t("\\subseteq ") }),
+  s({ trig = "emptyset", name = "emptyset", wordTrig = false }, { t("\\emptyset ") }),
   s({ trig = "oplus",    name = "oplus",    wordTrig = false }, { t("\\oplus ") }),
   s({ trig = "cap",      name = "cap",      wordTrig = false }, { t("\\cap ") }),
   s({ trig = "cup",      name = "cup",      wordTrig = false }, { t("\\cup ") }),
@@ -287,6 +289,10 @@ return {
   s({ trig = "cos", name = "cosine",  wordTrig = false }, { t("\\cos") }),
   s({ trig = "sin", name = "sine",    wordTrig = false }, { t("\\sin") }),
   s({ trig = "tan", name = "tangent", wordTrig = false }, { t("\\tan") }),
+
+  s({ trig = "cosh", name = "cosine",  wordTrig = false }, { t("\\cosh") }),
+  s({ trig = "sinh", name = "sine",    wordTrig = false }, { t("\\sinh") }),
+  s({ trig = "tanh", name = "tangent", wordTrig = false }, { t("\\tanh") }),
 
   s({ trig = ";e%^", regTrig = true }, fmta("e^{<>}", {i(1),}) ),  -- ;e^ → e^{}
   s({ trig = ";exp" }, fmta("\\exp\\left[ <> \\right]", {i(1),})), -- ;exp → \exp\left[ \right]
