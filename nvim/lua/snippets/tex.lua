@@ -273,9 +273,12 @@ return {
   -- ========================
   -- Set symbols
   -- ========================
+  s({ trig = "not",      name = "not",      wordTrig = false }, { t("\\not ") }),
   s({ trig = "inn",      name = "in",       wordTrig = false }, { t("\\in ") }),
   s({ trig = "subset",   name = "subset",   wordTrig = false }, { t("\\subset ") }),
+  s({ trig = "supset",   name = "supset",   wordTrig = false }, { t("\\supset ") }),
   s({ trig = "subseteq", name = "subseteq", wordTrig = false }, { t("\\subseteq ") }),
+  s({ trig = "supseteq", name = "supseteq", wordTrig = false }, { t("\\supseteq ") }),
   s({ trig = "emptyset", name = "emptyset", wordTrig = false }, { t("\\emptyset ") }),
   s({ trig = "oplus",    name = "oplus",    wordTrig = false }, { t("\\oplus ") }),
   s({ trig = "cap",      name = "cap",      wordTrig = false }, { t("\\cap ") }),
