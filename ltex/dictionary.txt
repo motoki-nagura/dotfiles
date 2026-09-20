@@ -2,8 +2,6 @@ wavenumber
 eigenfunction
 eigenfunctions
 orthonormality
-injective
-surjective
 
 Rossby
 Yanai
@@ -17,6 +15,10 @@ cartesian
 Weyl
 Dynkin
 Verma
+
+injective
+surjective
+nonreflexivity
 
 indecomposable
 subalgebra
