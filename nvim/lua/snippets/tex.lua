@@ -179,13 +179,21 @@ return {
   ),
 
   -- ========================
-  -- Align environment
+  -- Align, itemize environments
   -- ========================
   s({ trig = "ali", name = "align", wordTrig = false },
     fmt([[
 \begin{align}
   <>
 \end{align}
+<>]], { i(1), i(0) }, { delimiters = "<>" })
+  ),
+
+  s({ trig = "ite", name = "itemize", wordTrig = false },
+    fmt([[
+\begin{itemize}
+  <>
+\end{itemize}
 <>]], { i(1), i(0) }, { delimiters = "<>" })
   ),
 
