@@ -213,20 +213,9 @@ return {
   -- ========================
   s({ trig = "pt", name = "partial",  wordTrig = false }, { t("\\pt ") }),
 
-  s({ trig = "pd", name = "partial derivative" },
-    fmt("\\frac{{\\pt {}}}{{\\pt {}}}{}", { i(1, "f"), i(2, "x"), i(0) }),
-    { condition = line_begin }
-  ),
-
-  s({ trig = "pdd", name = "second partial derivative" },
-    fmt("\\frac{{\\pt^2 {}}}{{\\pt {}^2}}{}", { i(1, "f"), i(2, "x"), i(0) }),
-    { condition = line_begin }
-  ),
-
-  s({ trig = "pdc", name = "mixed partial derivative" },
-    fmt("\\frac{{\\pt^2 {}}}{{\\pt {} \\pt {}}}{}", { i(1, "f"), i(2, "x"), i(3, "y"), i(0) }),
-    { condition = line_begin }
-  ),
+  s({ trig = "pd", name = "partial derivative", wordTrig = false },
+  fmt([[\frac{{\pt {}}}{{\pt {}}}]], { i(1), i(2) })
+),
 
   s({ trig = "int", name = "integral", wordTrig = false },
     fmt([[
